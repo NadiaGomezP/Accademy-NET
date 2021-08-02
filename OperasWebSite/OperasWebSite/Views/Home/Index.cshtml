@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>@ViewData["msj"] al sistema de Operas!!</h1>
+        <h1>@ViewBag.msj</h1>
+
+        <h2>@ViewBag.FechaHora</h2>
+
+        @Html.ActionLink("Ir a opera", "Index", "Opera")
+    </div>
+</body>
+</html>

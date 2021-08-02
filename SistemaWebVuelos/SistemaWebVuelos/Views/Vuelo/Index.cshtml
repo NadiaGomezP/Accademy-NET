@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<SistemaWebVuelos.Models.Vuelo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container-fluid my-4">
+    <div class="text-center">
+        <button type="button" class="btn btn-info  my-4">
+            @Html.ActionLink("Crear Vuelo", "Create")
+        </button>
+        <div class="d-flex justify-content-center">
+            <table class="table  my-4">
+                <thead>
+                    <tr>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Fecha)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Destino)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Origen)</th>
+                        <th scope="col">@Html.DisplayNameFor(model => model.Matricula)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fecha)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Destino)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Origen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Matricula)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Detalles", "Detail", new { Matricula = item.Matricula })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Destino", "TraerPorDestino", new { destino = item.Destino })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
